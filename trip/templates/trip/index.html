@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <body>
+        <h1>This is the home page!</h1>
+        
+        <form method="post" action="{% url 'getRecommendations' %}">
+            {% csrf_token %}
+            <p><input type="submit" = value="getRecommendations"></p>
+        </form>
+
+        {% if user.is_authenticated %}
+        <h1>Your name is: {{user.username}}</h1>
+        <p><input type="submit" = value="logout"></p>
+        {% else %}
+        <h1>You aren't logged in</h1>
+        <p><input type="submit" = value="login"></p>
+
+        <p><input type="submit" = value="register"></p>
+        {% endif %}
+    </body>
+</html>
